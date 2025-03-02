@@ -111,7 +111,7 @@ update-checker:
   enabled: true
   
   # The SpigotMC resource ID for the plugin
-  # https://www.spigotmc.org/resources/timevorting.122960/
+  # https://www.spigotmc.org/resources/timevoting.122960/
   resource-id: 122960
   
   # Notify admins when they join if an update is available

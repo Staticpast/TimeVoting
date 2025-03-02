@@ -2,6 +2,7 @@
 
 A Minecraft Spigot plugin that allows players to vote on changing the current time of day on the server.
 
+[![SpigotMC](https://img.shields.io/badge/SpigotMC-TimeVoting-orange)](https://www.spigotmc.org/resources/timevoting.122960/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/mckenzio)
 
 ## Features
@@ -15,7 +16,7 @@ A Minecraft Spigot plugin that allows players to vote on changing the current ti
 
 ## Installation
 
-1. Download the latest release from [GitHub Releases](https://github.com/McKenzieJDan/TimeVoting/releases)
+1. Download the latest release from [Spigot](https://www.spigotmc.org/resources/timevoting.122960/) or [GitHub Releases](https://github.com/McKenzieJDan/TimeVoting/releases)
 2. Place the JAR file in your server's `plugins` folder
 3. Restart your server
 4. Configure the plugin in the `config.yml` file

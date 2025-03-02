@@ -1,0 +1,43 @@
+name: PluginTemplate
+version: '${project.version}'
+main: io.mckenz.template.PluginTemplate
+api-version: '1.21'
+description: A template for Minecraft plugins
+
+# TODO: Replace with your plugin commands
+commands:
+  plugintemplate:
+    description: Main command for PluginTemplate plugin
+    usage: |
+      /<command> status - Shows plugin status
+      /<command> toggle - Enable/disable the plugin
+      /<command> reload - Reload the configuration
+      /<command> debug - Toggle debug mode
+    aliases: [pt]
+
+# TODO: Replace with your plugin permissions
+permissions:
+  plugintemplate.admin:
+    description: Gives access to all PluginTemplate commands
+    default: op
+    children:
+      plugintemplate.status: true
+      plugintemplate.toggle: true
+      plugintemplate.reload: true
+      plugintemplate.debug: true
+      plugintemplate.update: true
+  plugintemplate.status:
+    description: Allows checking the plugin status
+    default: op
+  plugintemplate.toggle:
+    description: Allows enabling/disabling the plugin
+    default: op
+  plugintemplate.reload:
+    description: Allows reloading the plugin configuration
+    default: op
+  plugintemplate.debug:
+    description: Allows toggling debug mode
+    default: op
+  plugintemplate.update:
+    description: Allows receiving update notifications
+    default: op

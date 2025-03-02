@@ -1,0 +1,45 @@
+# ======================================
+# PluginTemplate Configuration
+# ======================================
+# Plugin Version: ${project.version}
+# 
+# TODO: Update with your plugin description
+# This configuration file controls all aspects of the plugin.
+# For support or questions, visit: https://github.com/McKenzieJDan/pluginname
+
+# ======================================
+# General Settings
+# ======================================
+
+# Master switch to enable or disable the plugin
+enabled: true
+
+# ======================================
+# Plugin Specific Settings
+# ======================================
+
+# TODO: Add your plugin's specific settings here
+
+# ======================================
+# Update Checker Settings
+# ======================================
+
+# Enable the update checker
+update-checker:
+  # Enable or disable the update checker
+  enabled: true
+  
+  # TODO: Update with your SpigotMC resource ID
+  # The SpigotMC resource ID for the plugin
+  resource-id: 0
+  
+  # Notify admins when they join if an update is available
+  notify-admins: true
+
+# ======================================
+# Advanced Settings
+# ======================================
+
+# Debug mode - when enabled, additional information will be printed to the console
+# Only enable this when troubleshooting issues
+debug: false

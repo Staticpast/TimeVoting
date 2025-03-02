@@ -1,11 +1,10 @@
 # ======================================
-# PluginTemplate Configuration
+# TimeVoting Configuration
 # ======================================
 # Plugin Version: ${project.version}
 # 
-# TODO: Update with your plugin description
-# This configuration file controls all aspects of the plugin.
-# For support or questions, visit: https://github.com/McKenzieJDan/pluginname
+# This plugin allows players to vote for changing the time of day in the server.
+# For support or questions, visit: https://github.com/McKenzieJDan/TimeVoting
 
 # ======================================
 # General Settings
@@ -15,11 +14,93 @@
 enabled: true
 
 # ======================================
-# Plugin Specific Settings
+# Voting Settings
 # ======================================
 
-# TODO: Add your plugin's specific settings here
+# Percentage of online players needed to change the time (0-100)
+voting:
+  # Threshold percentage required to change the time
+  threshold-percentage: 50
+  
+  # Minimum number of players required to be online for voting to work
+  # Set to 0 to disable this requirement
+  minimum-players: 2
 
+# ======================================
+# Time Settings
+# ======================================
+
+# Time values in Minecraft ticks (0-24000)
+# Dawn: 0, Day: 1000, Noon: 6000, Sunset: 12000, Night: 13000, Midnight: 18000
+time:
+  # Time values for each vote option
+  day: 1000
+  night: 13000
+  sunrise: 23000
+  sunset: 12000
+  
+  # How long (in seconds) each voted time should last before returning to normal time cycle
+  # Set to 0 to disable automatic return to normal time cycle
+  duration: 300
+
+# ======================================
+# Cooldown Settings
+# ======================================
+
+# Cooldown settings to prevent spam
+cooldowns:
+  # Time in seconds between time changes
+  between-changes: 300
+  
+  # Time in seconds between votes for the same player
+  between-votes: 60
+
+# ======================================
+# Message Settings
+# ======================================
+
+# Messages sent to players
+messages:
+  prefix: "&8[&eTimeVoting&8] "
+  vote-cast: "&7You voted for &e%time%&7."
+  vote-already-cast: "&7You already voted for &e%time%&7."
+  vote-changed: "&7You changed your vote to &e%time%&7."
+  vote-announcement: "&e%player% &7voted for &e%time%&7. (&f%votes%&7/&f%required%&7)"
+  time-changed: "&7The time has been changed to &e%time%&7!"
+  time-already: "&7The time is already &e%time%&7."
+  vote-cooldown: "&7You must wait &f%seconds%&7 seconds before voting again."
+  change-cooldown: "&7Time was recently changed. Please wait &f%seconds%&7 seconds."
+  not-enough-players: "&7At least &f%required%&7 players must be online to vote."
+  forecast: "&7Current time: &e%time%&7. Natural time cycle is &e%enabled%&7."
+  time-reset: "&7The time has been reset to the natural cycle."
+  plugin-disabled: "&7The TimeVoting plugin is currently disabled."
+  player-only: "&7This command can only be used by players."
+  no-permission: "&7You don't have permission to use this command."
+  invalid-time: "&7Invalid time type. Use day, night, sunrise, or sunset."
+  
+  # Vote status messages
+  vote-status-header: "&6Time Vote Status"
+  vote-status-entry: "&e%time%&7: &f%votes%&7/&f%required% &7votes"
+  vote-status-your-vote: "&7Your vote: &e%time%"
+  vote-status-no-vote: "&7You haven't voted yet."
+  
+  # Admin command messages
+  help-header: "&6TimeVoting Commands"
+  help-status: "&f/timevoting status &7- Show plugin status"
+  help-toggle: "&f/timevoting toggle &7- Enable/disable the plugin"
+  help-reload: "&f/timevoting reload &7- Reload the configuration"
+  help-debug: "&f/timevoting debug &7- Toggle debug mode"
+  
+  status-header: "&6TimeVoting Status"
+  status-enabled: "&7Plugin: &e%enabled%"
+  status-debug: "&7Debug mode: &e%debug%"
+  status-votes-header: "&6Vote Counts"
+  status-votes-entry: "&e%time%&7: &f%votes%&7/&f%required%"
+  
+  toggle-success: "&7TimeVoting has been &e%state%&7."
+  reload-success: "&7Configuration reloaded."
+  debug-success: "&7Debug mode has been &e%state%&7."
+  
 # ======================================
 # Update Checker Settings
 # ======================================
@@ -29,7 +110,6 @@ update-checker:
   # Enable or disable the update checker
   enabled: true
   
-  # TODO: Update with your SpigotMC resource ID
   # The SpigotMC resource ID for the plugin
   resource-id: 0
   

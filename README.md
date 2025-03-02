@@ -1,56 +1,89 @@
-# Minecraft Plugin Template
+# TimeVoting
 
-A flexible template for creating Minecraft Spigot/Paper plugins with a clean architecture and best practices.
+A Minecraft Spigot plugin that allows players to vote on changing the current time of day in the server.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/mckenzio)
 
 ## Features
 
-- Clean, modular architecture with separation of concerns
-- Comprehensive API system for integration with other plugins
-- Command framework with tab completion
-- Configuration management with automatic reloading
-- Debug logging system for troubleshooting
-- Update checker integration with SpigotMC
-- Event system with custom events
-- Permission-based command access
+* 🗳️ Players can vote to change the current time in the server
+* 📊 Configurable voting threshold based on percentage of online players
+* ⏱️ Cooldown system prevents spam voting and frequent time changes
+* ⌛ Control how long each time type lasts after being voted in
+* 📢 Broadcast announcements when players vote for time changes
+* 💬 Fully customizable messages for all plugin text
 
-## Getting Started
+## Installation
 
-1. Clone or download this template
-2. Rename the following:
-   - Project name in `pom.xml`
-   - Package structure (`io.mckenz.template` → your package)
-   - Plugin name and commands in `plugin.yml`
-   - Main class name and references
+1. Download the latest release from [GitHub Releases](https://github.com/McKenzieJDan/TimeVoting/releases)
+2. Place the JAR file in your server's `plugins` folder
+3. Restart your server
+4. Configure the plugin in the `config.yml` file
 
-3. Update TODOs:
-   - Add your plugin-specific settings in `config.yml`
-   - Implement your plugin-specific functionality
-   - Add your SpigotMC resource ID for update checking
+## Usage
 
-4. Build your plugin:
-   ```
-   mvn clean package
-   ```
+Players can vote for their preferred time of day using simple commands. When enough players vote for a specific time, it will change automatically.
 
-5. Find the JAR file in the `target` directory
+### Commands
 
-## Structure
+* `/votetime` - Shows the current vote status
+* `/votetime day` - Vote for day time
+* `/votetime night` - Vote for night time
+* `/votetime sunrise` - Vote for sunrise
+* `/votetime sunset` - Vote for sunset
+* `/timeforecast` - View the current time and when it will change naturally
+* `/timevoting` - Admin commands for managing the plugin
 
-- **Main Plugin Class** (`PluginTemplate.java`): Core functionality and lifecycle
-- **Command System** (`commands/`): Command handlers and tab completers
-- **Listeners** (`listeners/`): Event listeners for Bukkit events
-- **API** (`api/`): API interfaces for plugin integration
-- **Utilities** (`util/`): Utility classes
+### Permissions
 
+* `timevoting.vote` - Permission to vote for time changes
+* `timevoting.forecast` - Permission to use the forecast command
+* `timevoting.admin` - Access to all admin commands
+* `timevoting.status` - Permission to check plugin status
+* `timevoting.toggle` - Permission to enable/disable the plugin
+* `timevoting.reload` - Permission to reload the configuration
+* `timevoting.debug` - Permission to toggle debug mode
+* `timevoting.update` - Permission to receive update notifications
+
+## Configuration
+
+The plugin's configuration file (`config.yml`) is organized into logical sections:
+
+```yaml
+# Percentage of online players needed to change the time
+voting:
+  threshold-percentage: 50
+  minimum-players: 2
+
+# Time values in Minecraft ticks
+time:
+  day: 1000
+  night: 13000
+  sunrise: 23000
+  sunset: 12000
+  
+  # How long each voted time lasts before returning to normal cycle
+  duration: 300
+
+# Cooldown settings to prevent spam
+cooldowns:
+  between-changes: 300
+  between-votes: 60
+```
+
+For detailed configuration options, see the comments in the generated config.yml file.
+
+## Requirements
+
+- Spigot/Paper 1.21.4
+- Java 21+
 
 ## Support
 
-If you find this template helpful, consider [buying me a coffee](https://www.paypal.com/paypalme/mckenzio) ☕
+If you find this plugin helpful, consider [buying me a coffee](https://www.paypal.com/paypalme/mckenzio) ☕
 
 ## License
 
 [MIT License](LICENSE)
 
-Made with ❤️ by [McKenzieJDan](https://github.com/McKenzieJDan) 
+Made with ❤️ by [McKenzieJDan](https://github.com/McKenzieJDan)

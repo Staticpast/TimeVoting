@@ -1,43 +1,60 @@
-name: PluginTemplate
+name: TimeVoting
 version: '${project.version}'
-main: io.mckenz.template.PluginTemplate
+main: io.mckenz.timevoting.TimeVoting
 api-version: '1.21'
-description: A template for Minecraft plugins
+description: A Minecraft Spigot plugin that allows players to vote on changing the current time of day in the server.
 
-# TODO: Replace with your plugin commands
 commands:
-  plugintemplate:
-    description: Main command for PluginTemplate plugin
+  votetime:
+    description: Vote for a time of day
+    usage: |
+      /<command> - Shows the current vote status
+      /<command> day - Vote for day time
+      /<command> night - Vote for night time
+      /<command> sunrise - Vote for sunrise
+      /<command> sunset - Vote for sunset
+    aliases: [vt]
+  timevoting:
+    description: Admin commands for TimeVoting plugin
     usage: |
       /<command> status - Shows plugin status
       /<command> toggle - Enable/disable the plugin
       /<command> reload - Reload the configuration
       /<command> debug - Toggle debug mode
-    aliases: [pt]
+    aliases: [tv]
+  timeforecast:
+    description: View the current time and when it will change naturally
+    usage: /<command> - View the current time and when it will change naturally
+    aliases: [tf]
 
-# TODO: Replace with your plugin permissions
 permissions:
-  plugintemplate.admin:
-    description: Gives access to all PluginTemplate commands
+  timevoting.admin:
+    description: Gives access to all TimeVoting admin commands
     default: op
     children:
-      plugintemplate.status: true
-      plugintemplate.toggle: true
-      plugintemplate.reload: true
-      plugintemplate.debug: true
-      plugintemplate.update: true
-  plugintemplate.status:
+      timevoting.status: true
+      timevoting.toggle: true
+      timevoting.reload: true
+      timevoting.debug: true
+      timevoting.update: true
+  timevoting.vote:
+    description: Allows voting for time changes
+    default: true
+  timevoting.forecast:
+    description: Allows checking the time forecast
+    default: true
+  timevoting.status:
     description: Allows checking the plugin status
     default: op
-  plugintemplate.toggle:
+  timevoting.toggle:
     description: Allows enabling/disabling the plugin
     default: op
-  plugintemplate.reload:
+  timevoting.reload:
     description: Allows reloading the plugin configuration
     default: op
-  plugintemplate.debug:
+  timevoting.debug:
     description: Allows toggling debug mode
     default: op
-  plugintemplate.update:
+  timevoting.update:
     description: Allows receiving update notifications
     default: op

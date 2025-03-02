@@ -1,6 +1,6 @@
 # TimeVoting
 
-A Minecraft Spigot plugin that allows players to vote on changing the current time of day in the server.
+A Minecraft Spigot plugin that allows players to vote on changing the current time of day on the server.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/mckenzio)
 

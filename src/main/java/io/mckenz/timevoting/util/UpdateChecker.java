@@ -212,11 +212,14 @@ public class UpdateChecker implements Listener {
         // Only notify players with permission
         if (updateAvailable && player.hasPermission("timevoting.update")) {
             plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
-                player.sendMessage(ChatColor.GREEN + "[TimeVoting] " + ChatColor.YELLOW + "A new update is available: " + 
-                                  ChatColor.WHITE + "v" + latestVersion + ChatColor.YELLOW + " (Current: " + 
-                                  ChatColor.WHITE + "v" + plugin.getDescription().getVersion() + ChatColor.YELLOW + ")");
-                player.sendMessage(ChatColor.GREEN + "[TimeVoting] " + ChatColor.YELLOW + "Download it at: " + 
-                                  ChatColor.WHITE + "https://www.spigotmc.org/resources/" + resourceId);
+                // Get the prefix directly from config
+                String prefix = plugin.getConfig().getString("messages.prefix", "&8[&bTimeVoting&8] ");
+                prefix = plugin.colorize(prefix);
+                
+                // Send update notification messages
+                player.sendMessage(prefix + "§7A new update is available: §bv" + latestVersion);
+                player.sendMessage(prefix + "§7You are currently running: §bv" + plugin.getDescription().getVersion());
+                player.sendMessage(prefix + "§7Download the latest version from: §bhttps://www.spigotmc.org/resources/" + resourceId);
             }, 40L); // Delay for 2 seconds after join
         }
     }

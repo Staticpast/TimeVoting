@@ -81,7 +81,7 @@ For detailed configuration options, see the comments in the generated config.yml
 
 ## Used By
 
-- [SuegoFaults](https://suegofaults.com) - A collaborative adult Minecraft server where TimeVoting lets players shape the day together without chaos.
+[SuegoFaults](https://suegofaults.com) - A collaborative adult Minecraft server where TimeVoting lets players shape the day together without chaos.
 
 
 ## Support

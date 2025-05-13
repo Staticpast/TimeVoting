@@ -79,6 +79,11 @@ For detailed configuration options, see the comments in the generated config.yml
 - Spigot/Paper 1.21.5
 - Java 21+
 
+## Used By
+
+- [SuegoFaults](https://suegofaults.com) - A collaborative adult Minecraft server where TimeVoting lets players shape the day together without chaos.
+
+
 ## Support
 
 If you find this plugin helpful, consider [buying me a coffee](https://www.paypal.com/paypalme/mckenzio) ☕

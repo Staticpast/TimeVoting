@@ -2,6 +2,7 @@ package io.mckenz.timevoting.commands;
 
 import io.mckenz.timevoting.TimeVoting;
 
+import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -50,8 +51,8 @@ public class TimeForecastCommand implements CommandExecutor, TabCompleter {
         long time = world.getTime();
         String timeString = getTimeString(time);
         
-        boolean daylightCycle = world.getGameRuleValue("doDaylightCycle") != null && 
-                                Boolean.parseBoolean(world.getGameRuleValue("doDaylightCycle"));
+        boolean daylightCycle = world.getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE) != null &&
+                                Boolean.parseBoolean(world.getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE).toString());
         
         sender.sendMessage(plugin.getMessageWithPrefix("forecast")
                 .replace("%time%", timeString)

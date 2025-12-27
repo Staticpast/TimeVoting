@@ -51,8 +51,8 @@ public class TimeForecastCommand implements CommandExecutor, TabCompleter {
         long time = world.getTime();
         String timeString = getTimeString(time);
         
-        boolean daylightCycle = world.getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE) != null &&
-                                Boolean.parseBoolean(world.getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE).toString());
+        boolean daylightCycle = world.getGameRuleValue(GameRule.getByName("doDaylightCycle")) != null &&
+                                Boolean.parseBoolean(world.getGameRuleValue(GameRule.getByName("doDaylightCycle")).toString());
         
         sender.sendMessage(plugin.getMessageWithPrefix("forecast")
                 .replace("%time%", timeString)
